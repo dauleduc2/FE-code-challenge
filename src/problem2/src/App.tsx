@@ -16,7 +16,7 @@ interface CurrencySwapForm {
 }
 
 function App() {
-  const [errorMessage, setErrorMessage] = useState<string | null>("");
+  const [errorMessage] = useState<string | null>(""); // currently not used, but kept for future error handling
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { prices } = useGetPrices();
   const methods = useForm<CurrencySwapForm>({
