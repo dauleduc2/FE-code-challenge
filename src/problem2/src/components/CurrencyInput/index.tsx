@@ -74,8 +74,12 @@ const CurrencyInput: FunctionComponent<CurrencyInputProps> = ({
             <ListboxButton className="w-full md:min-w-[200px] grid cursor-default grid-cols-1 shadow-md rounded-md md:rounded-bl-none md:rounded-tl-none outline-l bg-white py-3 pr-2 pl-3 text-left text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-brand-purple sm:text-sm/6">
               <span className="col-start-1 row-start-1 flex items-center gap-3 pr-6">
                 <CurrencyIcon
-                  src={selectedOption?.iconUrl}
+                  src={selectedOption?.iconUrl || "/"}
                   alt={selectedOption?.value}
+                  onError={({ currentTarget }) => {
+                    currentTarget.onerror = null;
+                    currentTarget.src = "/tokens/USD.svg";
+                  }}
                 />
                 <span className="block truncate">{selectedOption?.label}</span>
               </span>
