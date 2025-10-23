@@ -1,4 +1,4 @@
-import { FormProvider, useForm } from "react-hook-form";
+import { FormProvider, useForm, useWatch } from "react-hook-form";
 import Button from "./components/Button";
 import CurrencyInput, {
   type CurrencyInputOption,
@@ -32,10 +32,16 @@ function App() {
     },
   });
 
-  const watchFromCurrency = methods.watch("from.currencyCode");
-  const watchFromAmount = methods.watch("from.amount");
-  const watchToCurrency = methods.watch("to.currencyCode");
-  const watchToAmount = methods.watch("to.amount");
+  const watchedValues = useWatch({
+    control: methods.control,
+    name: ["from", "to"],
+  });
+  const [from, to] = watchedValues;
+
+  const watchFromCurrency = from.currencyCode;
+  const watchFromAmount = from.amount;
+  const watchToCurrency = to.currencyCode;
+  const watchToAmount = to.amount;
 
   const availableOptions = useMemo<CurrencyInputOption[]>(() => {
     return prices.map((price) => ({
@@ -103,6 +109,7 @@ function App() {
     [getCurrencyPrice, methods, watchFromCurrency, watchToCurrency]
   );
 
+  // if any currency changes, update the prices. Consider "from" as source for now
   useEffect(() => {
     onPriceChange("from", methods.getValues("from.amount") || 0);
   }, [methods, onPriceChange, watchFromCurrency, watchToCurrency]);
