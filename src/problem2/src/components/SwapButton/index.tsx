@@ -13,7 +13,7 @@ const SwapButton: FunctionComponent<SwapButtonProps> = ({
   return (
     <button
       className={twMerge(
-        "w-14 h-14 p-3 cursor-pointer rounded-full border-gray-300 border bg-white text-white flex justify-center items-center hover:bg-gray-100 hover:rotate-180 duration-200 shadow-2xl bg-linear-60 from-brand-purple to-brand-blue hover:shadow-lg hover:scale-[1.1] active:scale-95 transition-all",
+        "w-14 h-14 p-3 cursor-pointer rounded-full bg-white flex justify-center items-center hover:bg-gray-100 hover:rotate-180 duration-200 text-gray-400 hover:scale-[1.1] active:scale-95 transition-all",
         className
       )}
       onClick={onClick}
