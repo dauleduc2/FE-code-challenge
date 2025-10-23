@@ -99,7 +99,7 @@ const CurrencyInput: FunctionComponent<CurrencyInputProps> = ({
                     </span>
                   </div>
 
-                  <span className="absolute inset-y-0 right-0 flex items-center pr-4 text-brand-outline-brand-purple group-not-data-selected:hidden group-data-focus:text-white">
+                  <span className="absolute inset-y-0 right-0 flex items-center pr-4 group-not-data-selected:hidden ">
                     <CheckIcon aria-hidden="true" className="size-5" />
                   </span>
                 </ListboxOption>
