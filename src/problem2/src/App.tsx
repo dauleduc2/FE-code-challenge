@@ -108,8 +108,8 @@ function App() {
   }, [methods, onPriceChange, watchFromCurrency, watchToCurrency]);
 
   return (
-    <main className="bg-linear-90 from-brand-blue to-brand-purple flex justify-center items-center w-screen h-screen p-5">
-      <div className="bg-white p-5 max-w-2xl md:w-fit rounded-3xl shadow-md flex flex-col gap-10 w-full">
+    <main className="bg-linear-60 from-brand-blue via-brand-dark-purple/90 to-brand-purple flex justify-center items-center w-screen h-screen p-5">
+      <div className="bg-white p-5 max-w-2xl md:w-fit rounded-3xl shadow-md flex flex-col gap-10 w-full py-10">
         <h1 className="text-3xl font-bold text-center">Currency Swap</h1>
 
         <FormProvider {...methods}>
@@ -123,7 +123,10 @@ function App() {
               label="From"
               onPriceChange={(newAmount) => onPriceChange("from", newAmount)}
             />
-            <SwapButton className="self-center" onClick={onSwapCurrency} />
+            <SwapButton
+              className="self-center -mb-6"
+              onClick={onSwapCurrency}
+            />
             <CurrencyInput
               options={availableOptions}
               name="to"

@@ -16,7 +16,7 @@ const Button: FunctionComponent<ButtonProps> = ({
   return (
     <button
       className={twMerge(
-        "px-6 inline-flex justify-center items-center rounded-lg text-white text-left font-bold font-['Poppins'] transition-all btn-type2 py-3 gap-1 w-auto bg-linear-60 from-brand-purple to-brand-blue shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-95",
+        "px-6 inline-flex justify-center items-center rounded-lg text-white text-left font-bold transition-all py-3 gap-1 w-auto bg-linear-60 from-brand-purple via-brand-dark-purple to-brand-blue shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-95",
         disabled && "opacity-50 cursor-not-allowed",
         className
       )}

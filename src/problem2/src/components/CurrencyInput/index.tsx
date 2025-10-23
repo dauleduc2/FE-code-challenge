@@ -46,8 +46,10 @@ const CurrencyInput: FunctionComponent<CurrencyInputProps> = ({
   }, [currencyValue?.currencyCode, options]);
 
   return (
-    <div className="flex flex-col gap-2">
-      <label className="font-semibold uppercase text-gray-700">{label}</label>
+    <div className="flex flex-col gap-1">
+      <label className="font-semibold uppercase text-gray-400 text-sm">
+        {label}
+      </label>
       <div className="flex md:flex-row flex-col md:gap-0 gap-2">
         <input
           {...registerAmountMethods}
@@ -59,6 +61,7 @@ const CurrencyInput: FunctionComponent<CurrencyInputProps> = ({
             }
           }}
           step="0.00000001"
+          placeholder="0.00000001"
           min="0"
           type="number"
           className="block w-full min-w-[250px] rounded-md shadow-md bg-white md:rounded-tr-none md:rounded-br-none py-3 pr-2 pl-3 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-brand-purple sm:text-sm/6"

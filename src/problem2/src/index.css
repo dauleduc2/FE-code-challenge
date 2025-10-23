@@ -3,6 +3,7 @@
 @theme {
   --color-brand-purple: rgba(169, 62, 255, 1);
   --color-brand-blue: rgba(0, 179, 255, 1);
+  --color-brand-dark-purple: #5e40de;
 }
 
 body {
