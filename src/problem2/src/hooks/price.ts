@@ -19,6 +19,7 @@ const removeDuplicatePrices = (prices: Price[]): Price[] => {
 
 export const useGetPrices = () => {
   const [prices, setPrices] = useState<Price[]>([]);
+  const [error, setError] = useState<unknown>();
   const [isFetching, setIsFetching] = useState(false);
 
   const fetchPrices = async () => {
@@ -30,7 +31,7 @@ export const useGetPrices = () => {
       const filteredPrices = removeDuplicatePrices(response.data);
       setPrices(filteredPrices);
     } catch (error) {
-      console.error("Error fetching prices:", error);
+      setError(error);
     } finally {
       setIsFetching(false);
     }
@@ -40,5 +41,5 @@ export const useGetPrices = () => {
     fetchPrices();
   }, []);
 
-  return { prices, isFetching, refetch: fetchPrices };
+  return { prices, isFetching, refetch: fetchPrices, error };
 };

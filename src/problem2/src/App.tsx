@@ -16,9 +16,9 @@ interface CurrencySwapForm {
 }
 
 function App() {
-  const [errorMessage] = useState<string | null>(""); // currently not used, but kept for future error handling
+  const [errorMessage, setErrorMessage] = useState<string | null>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const { prices } = useGetPrices();
+  const { prices, error } = useGetPrices();
   const methods = useForm<CurrencySwapForm>({
     defaultValues: {
       from: {
@@ -106,6 +106,19 @@ function App() {
   useEffect(() => {
     onPriceChange("from", methods.getValues("from.amount") || 0);
   }, [methods, onPriceChange, watchFromCurrency, watchToCurrency]);
+
+  useEffect(() => {
+    if (!error) {
+      setErrorMessage(null);
+      return;
+    }
+
+    if (error instanceof Error) {
+      setErrorMessage(`Failed to fetch prices: ${error.message}`);
+    } else {
+      setErrorMessage("An unknown error occurred while fetching prices.");
+    }
+  }, [error]);
 
   return (
     <main className="bg-linear-60 from-brand-blue via-brand-dark-purple/90 to-brand-purple flex justify-center items-center w-screen h-screen p-5">
