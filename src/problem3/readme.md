@@ -79,7 +79,13 @@ interface FormattedWalletBalance extends WalletBalance {
 
 ---
 
-### 6. **Logic Errors - Variable Issues**
+### 6. **Missing type declaration**
+
+**Issue:** `blockchain` field is not defined in `WalletBalance` interface
+
+**Solution:** define blockchain value in WalletBalance
+
+### 7. **Logic Errors - Variable Issues**
 
 **Issue:** `balancePriority` variable is initialized but not used while `lhsPriority` is not defined
 
@@ -87,7 +93,7 @@ interface FormattedWalletBalance extends WalletBalance {
 
 ---
 
-### 7. **Magic Numbers**
+### 8. **Magic Numbers**
 
 **Issue:** The code compares `lhsPriority` with `-99` which looks like a magic number
 
@@ -100,7 +106,7 @@ interface FormattedWalletBalance extends WalletBalance {
 
 ---
 
-### 8. **Code Complexity - Nested Conditions**
+### 9. **Code Complexity - Nested Conditions**
 
 **Issue:** Using 2 if conditions (`lhsPriority > -99` and `balance.amount <= 0`) for only one result
 
@@ -108,13 +114,13 @@ interface FormattedWalletBalance extends WalletBalance {
 
 ---
 
-### 9. **Sort Function - Incomplete Comparator**
+### 10. **Sort Function - Incomplete Comparator**
 
 **Issue:** The sort comparator doesn't return 0 for equal priorities
 
 ---
 
-### 10. **Performance - Unnecessary Dependencies**
+### 11. **Performance - Unnecessary Dependencies**
 
 **Issue:** Redundant dependency `prices` in useMemo
 
@@ -122,7 +128,7 @@ interface FormattedWalletBalance extends WalletBalance {
 
 ---
 
-### 11. **Unused Variables**
+### 12. **Unused Variables**
 
 **Issue:** `formattedBalances` is not used anywhere
 
@@ -130,19 +136,19 @@ interface FormattedWalletBalance extends WalletBalance {
 
 ---
 
-### 12. **Missing Memoization**
+### 13. **Missing Memoization**
 
 **Issue:** In case `formattedBalances` is used some where. A mapping function has expensive cost and should be declared with `useMemo` to avoid unnecessary reruns
 
 ---
 
-### 13. **Formatting Precision**
+### 14. **Formatting Precision**
 
 **Issue:** `toFixed()` without precision, so it's always 0 decimals which is not user friendly for prices
 
 ---
 
-### 14. **Performance - Component Rendering**
+### 15. **Performance - Component Rendering**
 
 **Issue:** The `rows` returns a list of components which is expensive
 
@@ -150,7 +156,7 @@ interface FormattedWalletBalance extends WalletBalance {
 
 ---
 
-### 15. **Unsafe Property Access**
+### 16. **Unsafe Property Access**
 
 **Issue:** `prices[balance.currency]` is not safe as it can be undefined
 
@@ -158,13 +164,13 @@ interface FormattedWalletBalance extends WalletBalance {
 
 ---
 
-### 16. **Missing variable declaration**
+### 17. **Missing variable declaration**
 
 **Issue:** `classes.row` is not defined
 
 ---
 
-### 17. **Poor Key Prop Usage**
+### 18. **Poor Key Prop Usage**
 
 **Issue:** Using index as key for `WalletRow` component
 
