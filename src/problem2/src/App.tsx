@@ -166,7 +166,8 @@ function App() {
                 isLoading ||
                 +watchFromAmount <= 0 ||
                 +watchToAmount <= 0 ||
-                watchFromCurrency === watchToCurrency
+                watchFromCurrency === watchToCurrency ||
+                Boolean(error)
               }
               className="cursor-pointer"
             >
