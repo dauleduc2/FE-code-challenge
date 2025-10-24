@@ -163,7 +163,10 @@ function App() {
             )}
             <Button
               disabled={
-                isLoading || +watchFromAmount <= 0 || +watchToAmount <= 0
+                isLoading ||
+                +watchFromAmount <= 0 ||
+                +watchToAmount <= 0 ||
+                watchFromCurrency === watchToCurrency
               }
               className="cursor-pointer"
             >
